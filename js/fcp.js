@@ -2877,6 +2877,7 @@ function ShareImg() {
       try {
         img = canvas.toDataURL('image/png', 1.0).split(',')[1];
 		} catch (e) {
+			console.log('error');
 			img = canvas.toDataURL().split(',')[1];
 		}
 	
