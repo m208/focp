@@ -2902,7 +2902,8 @@ function ShareImg() {
         alert(iFaceMsg[6]);
       }
 	});
-    }
+    },
+	   useCORS: true;
   });
 }
 
