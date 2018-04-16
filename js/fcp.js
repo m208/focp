@@ -2903,7 +2903,7 @@ function ShareImg() {
       }
 	});
     },
-	   useCORS: true;
+	   useCORS: true
   });
 }
 
