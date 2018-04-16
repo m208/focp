@@ -3,27 +3,24 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 }
 @font-face{
 	font-family: "Gothic821";
-	src: url(./apps/fcp/font/fallout.eot);
+	src: url(https://m208.github.io/focp/art/font/fallout.eot);
 }
 @font-face{
 	font-family: "Gothic821";
-	src: url(./apps/fcp/font/Gothic_821_Condensed.ttf) format('truetype');
+	src: url(https://m208.github.io/focp/art/font/Gothic_821_Condensed.ttf) format('truetype');
 }
 @font-face{
 	font-family: "FDisplay";
-	src: url(./apps/fcp/font/fallout_display.ttf);
+	src: url(https://m208.github.io/focp/art/font/fallout_display.ttf);
 }
 @font-face{
 	font-family: "JHFO";
-	/*
-	src: url(./apps/fcp/font/JH_FALLOUT3.ttf) format('truetype');
-	*/
-	src: url(./apps/fcp/font/fallout_display.ttf) format('truetype');
+	src: url(https://m208.github.io/focp/art/font/fallout_display.ttf) format('truetype');
 	
 }
 @font-face{
 	font-family: "FDecayed";
-	src: url(./apps/fcp/font/fallout_decayed.ttf);
+	src: url(https://m208.github.io/focp/art/font/fallout_decayed.ttf);
 }
 
 .container a,a:visited{color: #00be00;}
@@ -67,8 +64,8 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 	position: relative;
 }
 
-#containerCreation{background-image: url(./apps/fcp/gfx/bg_v_0.5.png);}
-#containerSelection{background-image: url(./apps/fcp/gfx/bg_selection.gif);}
+#containerCreation{background-image: url(https://m208.github.io/focp/art/gfx/bg_v_0.5.png);}
+#containerSelection{background-image: url(https://m208.github.io/focp/art/gfx/bg_selection.gif);}
 #containerVersionSelection{border: 1px solid #00be00;border-radius: 0px 0px 10px 10px;padding: 10px;background-color: #003300;width: 600px;height: auto;}
 
 .versionList{
@@ -81,7 +78,7 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 
 /* ALL KINDS OF BUTTONS */
 .button{
-	background-image: url(./apps/fcp/gfx/button_up.png);
+	background-image: url(https://m208.github.io/focp/art/gfx/button_up.png);
 	font-family: FDecayed,Gothic821,Fixedsys,Consolas;
 	font-size: 20px;
 	color: #bc9727;
@@ -95,9 +92,9 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 .Green{
 	color: #40ba1b;
 }
-.button:active{background-image: url(./apps/fcp/gfx/button_down.png);}
+.button:active{background-image: url(https://m208.github.io/focp/art/gfx/button_down.png);}
 .buttonDead{
-	background-image: url(./apps/fcp/gfx/button_up.png);
+	background-image: url(https://m208.github.io/focp/art/gfx/button_up.png);
 	font-family: FDecayed,Gothic821,Fixedsys,Consolas;
 	font-size: 20px;
 	color: #241010;
@@ -110,7 +107,7 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 	text-transform: uppercase;
 }
 .small_btn{
-	background-image: url(./apps/fcp/gfx/button_up_sm.png);
+	background-image: url(https://m208.github.io/focp/art/gfx/button_up_sm.png);
 	font-family: FDecayed,Gothic821,Fixedsys,Consolas;
 	font-size: 20px;
 	color: #bc9727;
@@ -123,7 +120,7 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 	text-transform: uppercase;
 }
 .small_btn_dead{
-	background-image: url(./apps/fcp/gfx/button_up_sm.png);
+	background-image: url(https://m208.github.io/focp/art/gfx/button_up_sm.png);
 	font-family: FDecayed,Gothic821,Fixedsys,Consolas;
 	font-size: 20px;
 	color: #241010;
@@ -134,40 +131,40 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 	padding-top: 3px;
 	text-transform: uppercase;
 }
-.small_btn:active{background-image: url(./apps/fcp/gfx/button_down_sm.png);}
+.small_btn:active{background-image: url(https://m208.github.io/focp/art/gfx/button_down_sm.png);}
 
 .perk_req{
-	background-image: url(./apps/fcp/gfx/toggle_up.gif);
+	background-image: url(https://m208.github.io/focp/art/gfx/toggle_up.gif);
 	width: 17px;
 	height: 11px;
 	cursor: pointer;
 	display: inline;
 	float: right;
 }
-.perk_req:active{background-image: url(./apps/fcp/gfx/toggle_down.gif);}
+.perk_req:active{background-image: url(https://m208.github.io/focp/art/gfx/toggle_down.gif);}
 
 
 .toggle{
-	background-image: url(./apps/fcp/gfx/toggle_up.gif);
+	background-image: url(https://m208.github.io/focp/art/gfx/toggle_up.gif);
 	width: 17px;
 	height: 11px;
 	cursor: pointer;
 }
-.toggle:active{background-image: url(./apps/fcp/gfx/toggle_down.gif);}
+.toggle:active{background-image: url(https://m208.github.io/focp/art/gfx/toggle_down.gif);}
 .plus{
-	background-image: url(./apps/fcp/gfx/plus_up.gif);
+	background-image: url(https://m208.github.io/focp/art/gfx/plus_up.gif);
 	width: 16px;
 	height: 12px;
 	cursor: pointer;
 }
-.plus:active{background-image: url(./apps/fcp/gfx/plus_down.gif);}
+.plus:active{background-image: url(https://m208.github.io/focp/art/gfx/plus_down.gif);}
 .minus{
-	background-image: url(./apps/fcp/gfx/minus_up.gif);
+	background-image: url(https://m208.github.io/focp/art/gfx/minus_up.gif);
 	width: 16px;
 	height: 12px;
 	cursor: pointer;
 }
-.minus:active{background-image: url(./apps/fcp/gfx/minus_down.gif);}
+.minus:active{background-image: url(https://m208.github.io/focp/art/gfx/minus_down.gif);}
 .buttonVersion{
 	display: inline-block;
 	cursor: pointer;
@@ -186,14 +183,14 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 	box-shadow: inset 0 0 50px #cc9900;
 	color: #cccc00;
 }
-.arrow_up{background-image: url(./apps/fcp/gfx/INVUPOUT.gif);width:22px;height:23px;cursor: pointer;}
-.arrow_up:active{background-image: url(./apps/fcp/gfx/INVUPIN.gif);}
-.arrow_down{background-image: url(./apps/fcp/gfx/INVDNOUT.gif);width:22px;height:23px;cursor: pointer;}
-.arrow_down:active{background-image: url(./apps/fcp/gfx/INVDNIN.gif);}
-.arrow_tiny_up{background-image: url(./apps/fcp/gfx/UPARWOFF.gif);width:11px;height:14px;cursor: pointer;}
-.arrow_tiny_up:active{background-image: url(./apps/fcp/gfx/UPARWON.gif);}
-.arrow_tiny_down{background-image: url(./apps/fcp/gfx/DNARWOFF.gif);width:11px;height:14px;cursor: pointer;}
-.arrow_tiny_down:active{background-image: url(./apps/fcp/gfx/DNARWON.gif);}
+.arrow_up{background-image: url(https://m208.github.io/focp/art/gfx/INVUPOUT.gif);width:22px;height:23px;cursor: pointer;}
+.arrow_up:active{background-image: url(https://m208.github.io/focp/art/gfx/INVUPIN.gif);}
+.arrow_down{background-image: url(https://m208.github.io/focp/art/gfx/INVDNOUT.gif);width:22px;height:23px;cursor: pointer;}
+.arrow_down:active{background-image: url(https://m208.github.io/focp/art/gfx/INVDNIN.gif);}
+.arrow_tiny_up{background-image: url(https://m208.github.io/focp/art/gfx/UPARWOFF.gif);width:11px;height:14px;cursor: pointer;}
+.arrow_tiny_up:active{background-image: url(https://m208.github.io/focp/art/gfx/UPARWON.gif);}
+.arrow_tiny_down{background-image: url(https://m208.github.io/focp/art/gfx/DNARWOFF.gif);width:11px;height:14px;cursor: pointer;}
+.arrow_tiny_down:active{background-image: url(https://m208.github.io/focp/art/gfx/DNARWON.gif);}
 
 /* OUTPUT */
 .outputNormal{
@@ -316,13 +313,13 @@ body{background-color: #000000;background-repeat: no-repeat;background-position:
 #plusminusSpecial{top: 38px;left: 149px;}
 #plusminusSpecial div{margin-bottom: 9px;}
 #plusminusSpecial div div{margin-bottom: 0px;}
-#plusminusSlider{top: 45px;left:515px;background-image: url(./apps/fcp/gfx/slider.gif);width: 43px;height: 29px;z-index: 2;}
+#plusminusSlider{top: 45px;left:515px;background-image: url(https://m208.github.io/focp/art/gfx/slider.gif);width: 43px;height: 29px;z-index: 2;}
 #plusminusSlider div{position: absolute;right: 5px;bottom: 14px;}
 #plusminusSlider div:last-child{position: absolute;right: 5px;bottom: 2px;}
-#plusminusSliderA{top: 55px;left:693px;background-image: url(./apps/fcp/gfx/slider.gif);width: 43px;height: 29px;z-index: 2;}
+#plusminusSliderA{top: 55px;left:693px;background-image: url(https://m208.github.io/focp/art/gfx/slider.gif);width: 43px;height: 29px;z-index: 2;}
 #plusminusSliderA div{position: absolute;right: 5px;bottom: 14px;}
 #plusminusSliderA div:last-child{position: absolute;right: 5px;bottom: 2px;}
-#plusminusSliderB{top: 55px;left:840px;background-image: url(./apps/fcp/gfx/slider.gif);width: 43px;height: 29px;z-index: 2;}
+#plusminusSliderB{top: 55px;left:840px;background-image: url(https://m208.github.io/focp/art/gfx/slider.gif);width: 43px;height: 29px;z-index: 2;}
 #plusminusSliderB div{position: absolute;right: 5px;bottom: 14px;}
 #plusminusSliderB div:last-child{position: absolute;right: 5px;bottom: 2px;}
 
