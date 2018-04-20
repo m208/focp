@@ -473,6 +473,8 @@ function autoIncreaseSkill(num, val) {
     var skillTaggedPoints = taggedSkills[num] ? 2 : 1 
 	var curSkill = curSkills[num];
 	
+	if (curSkill >= val) { return; }
+	
 		var investment = 1;
 		while (curSkill < val)	{
 			
@@ -673,39 +675,6 @@ function increaseSkill() {
 	
     investedSkills[index] += investment;
 
-    updateSkills();
-    outputSkills();
-    outputSkillpoints();
-}
-
-function autoIncreaseSkill0(num, val) {
-
-    var curSkill = curSkills[num];
-
-    if (curSkill >= val) { return; }
-
-    
-	
-	while (curSkill < val){
-
-	var investment = 1;
-    if (curSkill > 100) {
-        if (curSkill < 126) {
-            investment = 2;
-        } else if (curSkill < 151) {
-            investment = 3;
-        } else if (curSkill < 176) {
-            investment = 4;
-        } else if (curSkill < 201) {
-            investment = 5;
-        } else {
-            investment = 6;
-        }
-    }
-	
-    investedSkills[num] += investment;
-	}
-	
     updateSkills();
     outputSkills();
     outputSkillpoints();
@@ -994,7 +963,7 @@ function checkPerkbyLvl_old(name){
 	}
 }
 
-function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1 = perk avaialble, 2 = missed perks on prev levels or all perks taken
+function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1 = perk avaialble, 2 = missed perks on prev levels or all perks taken , 3 = perk avaialable but skills not fit
     var perk_index=PERKS_RAW.indexOf(name);
 	not_ranks = typeof not_ranks !== 'undefined' ? not_ranks : false;
 	// not_ranks  argument used only at output taken perks div
@@ -1002,7 +971,7 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 	
 	// checks skill requirements
 	if(!perkAvailableBySkill(name)){
-		 return 0;
+		 return 3;
 	}
 
     // checks special
@@ -2009,6 +1978,7 @@ function highlightPerks() {
 		var info_outputPerks = 'outputPerks'+col+'';
 		var default_tip = info[info_outputPerks][j];
 		var warning_tip = "";
+		var full_tip = "";
 		
 		var perk_text_span = $('#'+info_outputPerks).find("div").eq(j).find("span").eq(1);
 		var perk_div = $('#'+info_outputPerks).find("div").eq(j);
@@ -2023,7 +1993,8 @@ function highlightPerks() {
 
 			perk_text_span.addClass( cssclass );
 			warning_tip = ''+iFaceMsg[1]+' '+perkReqInfo[info_outputPerks][j]+'';
-			perk_div.attr('title', warning_tip);
+			full_tip = ''+default_tip+'</br>'+warning_tip+'';
+			perk_div.attr('title', full_tip);
 			
 	
 		} else if (available == 2)  {									// perk in another lvl group 
@@ -2037,7 +2008,17 @@ function highlightPerks() {
 			
 			perk_div.attr('title', default_tip);
 
-		} else {	
+		} else if (available == 3)  {									// skills not fit
+			var cssclass = "skillsNotFitPerk";
+			perk_text_span.addClass( cssclass );
+			warning_tip = ''+iFaceMsg[1]+' '+perkReqInfo[info_outputPerks][j]+'';
+			full_tip = ''+default_tip+'</br>'+warning_tip+'';
+			perk_div.attr('title', full_tip);
+			
+
+		}
+
+		else {	
 
         } 
 
@@ -2440,7 +2421,7 @@ function resetBuild() {
     build_name = 'Unnamed';
     level = 99;
     spoints = 0;
-    special = [1,9,9,1,2,8,10];
+	special = [6,1,10,1,6,10,6];
     gainedSpecial = [0,0,0,0,0,0,0];
 
 //    takenPerks = [0, 0, 0, 0, 0, 0, 0, 0];
