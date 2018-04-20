@@ -943,7 +943,7 @@ function perkAvailableBySkill(name){
 			}	
 		}
 	});
-	return true;
+	return 3; // spagetticode
 }
 
 // more simple func, checking latest missing perk, dont allow take highers perks if no more free perks 
