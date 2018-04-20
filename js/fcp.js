@@ -925,7 +925,7 @@ function getPerkRequiredLeveldiv3m1(name) {
 }
 
 
-function perkNotAvailableBySkill(name){
+function perkAvailableBySkill(name){
 	//var ret = false;
 	$.each(PERKS_SKILL_REQ, function(index, value) {
 		if (name == index){
@@ -1010,7 +1010,7 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
     }
 	
 	// checks skill requirements
-	var perkNotAvailableBySkill = perkNotAvailableBySkill(name);
+	var perkNotAvailableBySkill = perkAvailableBySkill(name);
 	
 	if(perkNotAvailableBySkill == 1){
 		return 3;
