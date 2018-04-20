@@ -424,6 +424,7 @@ width: 134px;}
 .excessSkill { color: #d2d23e; }
 .warning { color: #9e2a2a; }
 .badSpecial { color: red; }
+.skillsNotFitPerk { color: #568256; }
 
 #copyright {
 font-size: 9px;
