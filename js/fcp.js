@@ -467,6 +467,82 @@ function BubbleSortBonus(arr) {
   return arr; 
 }
 
+function autoIncreaseSkill(num, val) {
+	
+	
+    var skillTaggedPoints = taggedSkills[num] ? 2 : 1 
+	var curSkill = curSkills[num];
+	
+/*	
+	var investPointsLeft = investedSkills[num];
+	var bonusIsReal = false;
+	var applyedPerks = [];				// list of currently applyed perks
+
+	var perkBonus = getRelatedBonus(num); 	// get bonus from related perks	
+											//example perkBonus ["Medic", 25, 100, "Living Anatomy", 20, 160] ranged by lowest taken lvl
+
+	if (perkBonus.length>0){
+		bonusIsReal = true;
+	//		console.log("skill num:", num, perkBonus);
+	}
+
+		// if no invested points yet, and we click on perk on start 
+		
+			if (investPointsLeft == 0 && (bonusIsReal) ){
+			var n = 0;
+			for (var j = 0; j<perkBonus.length; j+=3 ){
+				var prev_val = val;
+				val += parseInt (perkBonus[j+1]); // parse int. Cuz can read it as string 
+				applyedPerks[applyedPerks.length] = perkBonus[j];
+				
+				var name = SKILLS_RAW[perkBonus[j]];
+				saveCurrentSkills(name, prev_val);
+				
+				n++;
+			//	console.log ("applyed perk N:" , perkBonus[j], "at skill level", prev_val, "bonus:", perkBonus[j+1] , "new val:", val);
+			}
+	
+		}
+	
+		// calc skill value ranged by skill level
+*/		
+		  var investment = 1;
+		  //while (investPointsLeft > 0 && investment <= investPointsLeft && val < 300)	{
+			while (curSkill < val)	{
+			
+			if (curSkill > 100) {
+                if (curSkill < 126) {
+                    investment = 2;
+                } else if (curSkill < 151) {
+                    investment = 3;
+                } else if (curSkill < 176) {
+                    investment = 4;
+                } else if (curSkill < 201) {
+                    investment = 5;
+                } else {
+                    investment = 6;
+                }
+            }			  
+			curSkill += 1 * skillTaggedPoints; 
+			investedSkills[num] += investment
+			
+			//val += 1 * skillTaggedPoints; 
+			//investPointsLeft -= investment;
+
+			
+
+			
+		}
+				
+
+	
+//	unPickRelatedThing(val, perkBonus);	//if after investment pnts, skill value is lower, than it was at taking perk, remove this perk
+	
+	
+}
+
+
+
 function calcSkillWithInvestment(num, val) {
 	
 	var investPointsLeft = investedSkills[num];
@@ -610,7 +686,7 @@ function decreseSkill() {
 
     updateSkills();
     outputSkills();
-    outputSkillpoints()
+    outputSkillpoints();
 }
 
 function increaseSkill() {
@@ -618,7 +694,7 @@ function increaseSkill() {
 
     cap = 300;
 
-    var curSkill = curSkills[index]
+    var curSkill = curSkills[index];
 
     if (curSkill >= cap) { return; }
 
@@ -639,6 +715,39 @@ function increaseSkill() {
 	
     investedSkills[index] += investment;
 
+    updateSkills();
+    outputSkills();
+    outputSkillpoints();
+}
+
+function autoIncreaseSkill0(num, val) {
+
+    var curSkill = curSkills[num];
+
+    if (curSkill >= val) { return; }
+
+    
+	
+	while (curSkill < val){
+
+	var investment = 1;
+    if (curSkill > 100) {
+        if (curSkill < 126) {
+            investment = 2;
+        } else if (curSkill < 151) {
+            investment = 3;
+        } else if (curSkill < 176) {
+            investment = 4;
+        } else if (curSkill < 201) {
+            investment = 5;
+        } else {
+            investment = 6;
+        }
+    }
+	
+    investedSkills[num] += investment;
+	}
+	
     updateSkills();
     outputSkills();
     outputSkillpoints();
