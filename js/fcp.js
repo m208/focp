@@ -467,58 +467,6 @@ function BubbleSortBonus(arr) {
   return arr; 
 }
 
-function autoFitSkillsToPerk(name){
-	
-		$.each(PERKS_SKILL_REQ, function(index, value) {
-		if (name == index){
-			for(var index=0;index<PERKS_SKILL_REQ[name].length;index++) {
-				var val = (PERKS_SKILL_REQ[name])[index]
-				
-				
-				
-				autoIncreaseSkill(index, val );
-			}	
-		}
-	});
-}
-
-
-function autoIncreaseSkill(num, val) {
-	
-	
-    var skillTaggedPoints = taggedSkills[num] ? 2 : 1 
-	var curSkill = curSkills[num];
-	
-	if (curSkill >= val) { return; }
-	
-		var investment = 1;
-		while (curSkill < val)	{
-			
-			if (curSkill > 100) {
-                if (curSkill < 126) {
-                    investment = 2;
-                } else if (curSkill < 151) {
-                    investment = 3;
-                } else if (curSkill < 176) {
-                    investment = 4;
-                } else if (curSkill < 201) {
-                    investment = 5;
-                } else {
-                    investment = 6;
-                }
-            }			  
-			curSkill += 1 * skillTaggedPoints; 
-			investedSkills[num] += investment
-		}
-		
-	updateSkills();
-    outputSkills();
-    outputSkillpoints();
-
-}
-
-
-
 function calcSkillWithInvestment(num, val) {
 	
 	var investPointsLeft = investedSkills[num];
@@ -662,7 +610,7 @@ function decreseSkill() {
 
     updateSkills();
     outputSkills();
-    outputSkillpoints();
+    outputSkillpoints()
 }
 
 function increaseSkill() {
@@ -670,7 +618,7 @@ function increaseSkill() {
 
     cap = 300;
 
-    var curSkill = curSkills[index];
+    var curSkill = curSkills[index]
 
     if (curSkill >= cap) { return; }
 
@@ -811,7 +759,7 @@ function pickPerk(param, name) {
 	
  if (param == 0){					// if param != 0 we do not check avaialability for perk
 	var available = perkAvailable(name);	
-	if (available  == 0 || available  == 2 ) {	
+	if (available  != 1) {	
 		return;
 	}
  }	
@@ -821,12 +769,7 @@ function pickPerk(param, name) {
     	return ;
 	}
  
-	if (available  == 3){
-		autoFitSkillsToPerk(name);
-	}
- 
- 
- 
+
 	perks[PERKS_RAW.indexOf(name)] += 1;
   
 	var PerkLvlGroup = getPerkLvlGroup(name);
@@ -984,13 +927,16 @@ function checkPerkbyLvl_old(name){
 	}
 }
 
-function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1 = perk avaialble, 2 = missed perks on prev levels or all perks taken , 3 = perk avaialable but skills not fit
+function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1 = perk avaialble, 2 = missed perks on prev levels or all perks taken
     var perk_index=PERKS_RAW.indexOf(name);
 	not_ranks = typeof not_ranks !== 'undefined' ? not_ranks : false;
 	// not_ranks  argument used only at output taken perks div
 
 	
-
+	// checks skill requirements
+	if(!perkAvailableBySkill(name)){
+		 return 0;
+	}
 
     // checks special
     for(var index=0;index<PERKS_SPECIAL_REQ[name].length;index++) {
@@ -1006,10 +952,6 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 			}
     }
 	
-	// checks skill requirements
-	if(!perkAvailableBySkill(name)){
-		 return 3;
-	}
 
 	if (!not_ranks)	{	
 		// check all perks already taken
@@ -2000,7 +1942,6 @@ function highlightPerks() {
 		var info_outputPerks = 'outputPerks'+col+'';
 		var default_tip = info[info_outputPerks][j];
 		var warning_tip = "";
-		var full_tip = "";
 		
 		var perk_text_span = $('#'+info_outputPerks).find("div").eq(j).find("span").eq(1);
 		var perk_div = $('#'+info_outputPerks).find("div").eq(j);
@@ -2015,8 +1956,7 @@ function highlightPerks() {
 
 			perk_text_span.addClass( cssclass );
 			warning_tip = ''+iFaceMsg[1]+' '+perkReqInfo[info_outputPerks][j]+'';
-			full_tip = ''+default_tip+'&#010;'+warning_tip+'';
-			perk_div.attr('title', full_tip);
+			perk_div.attr('title', warning_tip);
 			
 	
 		} else if (available == 2)  {									// perk in another lvl group 
@@ -2030,17 +1970,7 @@ function highlightPerks() {
 			
 			perk_div.attr('title', default_tip);
 
-		} else if (available == 3)  {									// skills not fit
-			var cssclass = "skillsNotFitPerk";
-			perk_text_span.addClass( cssclass );
-			warning_tip = ''+iFaceMsg[1]+' '+perkReqInfo[info_outputPerks][j]+'';
-			full_tip = ''+default_tip+'&#010;'+warning_tip+'';
-			perk_div.attr('title', full_tip);
-			
-
-		}
-
-		else {	
+		} else {	
 
         } 
 
@@ -2143,7 +2073,7 @@ function generateQuestText() {
 
 function generateJsonData() {
 		
-	var json = $.getJSON('https://m208.github.io/focp/ajax/languages.txt?v=1523916875',  function(data) {	// get ajax json data
+	var json = $.getJSON('fo2cp/ajax/languages.txt',  function(data) {	// get ajax json data
 		info 		= data[current_lang]["tooltips"];
 		perkReqInfo = data[current_lang]["warning_tips"];
 		iFaceMsg = data[current_lang]["variables"]["iFaceMsg"];
@@ -2443,7 +2373,7 @@ function resetBuild() {
     build_name = 'Unnamed';
     level = 99;
     spoints = 0;
-	special = [6,1,10,1,6,10,6];
+    special = [1,9,9,1,2,8,10];
     gainedSpecial = [0,0,0,0,0,0,0];
 
 //    takenPerks = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -2593,7 +2523,7 @@ function translateIface(new_lang){
 
 		// ajax json data
 	
-	var json = $.getJSON('https://m208.github.io/focp/ajax/languages.txt?v=1523916875',  function(data) {
+	var json = $.getJSON('fo2cp/ajax/languages.txt?v=1523042586',  function(data) {
 		
 		// translate existed txt
 		var div_text = data[new_lang]["div_texts"];
@@ -2947,7 +2877,6 @@ function ShareImg() {
       try {
         img = canvas.toDataURL('image/png', 1.0).split(',')[1];
 		} catch (e) {
-			console.log('error');
 			img = canvas.toDataURL().split(',')[1];
 		}
 	
@@ -2972,16 +2901,14 @@ function ShareImg() {
         alert(iFaceMsg[6]);
       }
 	});
-    },
-	   useCORS: true
+    }
   });
 }
 
  	// goo.gl API
  function makeShort(longURL) 
  {
-	var clientKey = 'AIzaSyBmYu7V4RIDRJ4WdjiHkuzZutv-m6F4LUc';
-	//var clientKey = 'AIzaSyAMTVPm2GtPUIuO2_0qngwL9dfiGj5iumU';
+	var clientKey = 'AIzaSyAMTVPm2GtPUIuO2_0qngwL9dfiGj5iumU';
 	$.ajax({
         url: 'https://www.googleapis.com/urlshortener/v1/url?key='+clientKey+'',
 		type: 'POST',
