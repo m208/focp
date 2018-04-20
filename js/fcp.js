@@ -943,7 +943,7 @@ function perkNotAvailableBySkill(name){
 			}	
 		}
 	});
-	//return ret;
+	return false;
 }
 
 // more simple func, checking latest missing perk, dont allow take highers perks if no more free perks 
