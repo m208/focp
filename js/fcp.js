@@ -931,8 +931,8 @@ function perkAvailableBySkill(name){
 		if (name == index){
 			for(var index=0;index<PERKS_SKILL_REQ[name].length;index++) {
 				var element=(PERKS_SKILL_REQ[name])[index]
-				if((element > 0 && curSkills[index] < element) || (element < 0 && curSkills[index] >= (-1 * element) )) {
-				
+				if((element > 0 && curSkills[index] < element) || (element < 0 && curSkills[index] >= -element )) {
+				console.log(name, element, curSkills[index] );
 				ret = false;
 				}
 			}	
