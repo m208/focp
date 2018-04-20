@@ -467,6 +467,19 @@ function BubbleSortBonus(arr) {
   return arr; 
 }
 
+function autoFitSkillsToPerk(name){
+	
+		$.each(PERKS_SKILL_REQ, function(index, value) {
+		if (name == index){
+			for(var index=0;index<PERKS_SKILL_REQ[name].length;index++) {
+				var val = (PERKS_SKILL_REQ[name])[index]
+				autoIncreaseSkill(perks[PERKS_RAW.indexOf(name)], val );
+			}	
+		}
+	});
+}
+
+
 function autoIncreaseSkill(num, val) {
 	
 	
@@ -795,7 +808,7 @@ function pickPerk(param, name) {
 	
  if (param == 0){					// if param != 0 we do not check avaialability for perk
 	var available = perkAvailable(name);	
-	if (available  != 1) {	
+	if (available  == 0 || available  == 2 ) {	
 		return;
 	}
  }	
@@ -805,7 +818,12 @@ function pickPerk(param, name) {
     	return ;
 	}
  
-
+	if (available  == 3){
+		autoFitSkillsToPerk(name);
+	}
+ 
+ 
+ 
 	perks[PERKS_RAW.indexOf(name)] += 1;
   
 	var PerkLvlGroup = getPerkLvlGroup(name);
@@ -1993,7 +2011,7 @@ function highlightPerks() {
 
 			perk_text_span.addClass( cssclass );
 			warning_tip = ''+iFaceMsg[1]+' '+perkReqInfo[info_outputPerks][j]+'';
-			full_tip = ''+default_tip+'</br>'+warning_tip+'';
+			full_tip = ''+default_tip+'&#010'+warning_tip+'';
 			perk_div.attr('title', full_tip);
 			
 	
@@ -2012,7 +2030,7 @@ function highlightPerks() {
 			var cssclass = "skillsNotFitPerk";
 			perk_text_span.addClass( cssclass );
 			warning_tip = ''+iFaceMsg[1]+' '+perkReqInfo[info_outputPerks][j]+'';
-			full_tip = ''+default_tip+'</br>'+warning_tip+'';
+			full_tip = ''+default_tip+'&#010'+warning_tip+'';
 			perk_div.attr('title', full_tip);
 			
 
