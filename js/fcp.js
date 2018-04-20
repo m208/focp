@@ -925,20 +925,25 @@ function getPerkRequiredLeveldiv3m1(name) {
 }
 
 
-function perkAvailableBySkill(name){
-	var ret = true;
+function perkNotAvailableBySkill(name){
+	//var ret = false;
 	$.each(PERKS_SKILL_REQ, function(index, value) {
 		if (name == index){
 			for(var index=0;index<PERKS_SKILL_REQ[name].length;index++) {
 				var element=(PERKS_SKILL_REQ[name])[index]
-				if((element > 0 && curSkills[index] < element) || (element < 0 && curSkills[index] >= -element )) {
-				console.log(name, element, curSkills[index] );
-				ret = false;
+				//if((element > 0 && curSkills[index] < element) || (element < 0 && curSkills[index] >= -element )) {
+				if (element > 0 && curSkills[index] < element) {
+					return 1;	// to auto fit skills
+				} else if (element < 0 && curSkills[index] >= -element){
+					return 0;	// we cant lower skills
 				}
+				//console.log(name, element, curSkills[index] );
+				//ret = false;
+				
 			}	
 		}
 	});
-	return ret;
+	//return ret;
 }
 
 // more simple func, checking latest missing perk, dont allow take highers perks if no more free perks 
@@ -1005,8 +1010,12 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
     }
 	
 	// checks skill requirements
-	if(!perkAvailableBySkill(name)){
-		 return 3;
+	var perkNotAvailableBySkill = perkNotAvailableBySkill(name);
+	
+	if(perkNotAvailableBySkill == 1){
+		return 3;
+	} else if (perkNotAvailableBySkill == 0){
+		return 0;
 	}
 
 	if (!not_ranks)	{	
