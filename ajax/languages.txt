@@ -1,4 +1,4 @@
-{
+﻿{
 "Eng":{
 	"tooltips" : {
 		"outputSpecialNum": ["Difference between actual strength and weapon strength requirement affects chance to get arms crippled/weapon dropped when hit in arms (5% per 1 point of strength)",
@@ -44,7 +44,7 @@
 							"Modifies likelihood of being forced into random encounters. No affect after 95%."],
 		"outputPerks1": ["18% chance to resist critical hit (hit counts as not critical). Stacks with armor anticritical bonuses.", 
 							"+10 to HtH Damage", 
-							"Needs to be reworked",
+							"At encounter you are being spawned in best possible placement.",
 							"+6 to Sequence",
 							"+4-10 HP healed when using First Aid",
 							"Inventory actions cost half AP, Reload and Use 1 AP",
@@ -139,7 +139,7 @@
 						"Carry Weight", "Armor Class", "Healing Rate", "Melee Damage", "Poison Res.", "Radiation Res.", "Sequence", "Books read"],
 		"outputInfo" : [ "Char Points", "Tag Points", "Trait Points"],
 		"titles" :	[ "Level:",	"Skills", "Pick a perk:", "Level 3", "Level 6",	"Level 9", "Level 12",	"Level 15",	"Level 18",	"Quests", "Implants", "Taken Perks", "Drugs"],
-		"buttons": ["English", "Русскии", "Polski", "", "Reset", "Books", "DMGP", "", "Link it!", "Post it!"]
+		"buttons": ["English", "Русскии", "Polski", "", "Reset", "Books", "Damage", "", "Link it!", "Post it!"]
 	},
 	"variables"	: {
 		"iFaceMsg" : ["Copy to clipboard: Ctrl+C, Enter", "Required: ", "You should take perks on previous levels!", "Pick perk!", "Perk taken at:", "Stats doesn't fit perk requirements!", "Error. Try again later."],
@@ -510,7 +510,7 @@
 							"Modifies likelihood of being forced into random encounters. No affect after 95%."],
 		"outputPerks1": ["18% chance to resist critical hit (hit counts as not critical). Stacks with armor anticritical bonuses.", 
 							"+10 to HtH Damage", 
-							"Needs to be reworked",
+							"At encounter you are being spawned in best possible placement.",
 							"+6 to Sequence",
 							"+4-10 HP healed when using First Aid",
 							"Inventory actions cost half AP, Reload and Use 1 AP",
