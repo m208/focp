@@ -934,14 +934,9 @@ function perkAvailableBySkill(name){
 				//if((element > 0 && curSkills[index] < element) || (element < 0 && curSkills[index] >= -element )) {
 				if (element > 0 && curSkills[index] < element) {
 					ret = 1;
-					//return 1;	// to auto fit skills
 				} else if (element < 0 && curSkills[index] >= -element){
 					ret = 0;
-					//return 0;	// we cant lower skills
 				}
-				//console.log(name, element, curSkills[index] );
-				//ret = false;
-				
 			}	
 		}
 	});
@@ -1013,11 +1008,11 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 	
 	// checks skill requirements
 	var perkNotAvailableBySkill = perkAvailableBySkill(name);
-	console.log(name, perkNotAvailableBySkill);
+
 	if(perkNotAvailableBySkill == 1){
 		return 3;
 	} else if (perkNotAvailableBySkill == 0){
-		return 0;
+		return 0;		//	this for hth evade
 	}
 
 	if (!not_ranks)	{	
