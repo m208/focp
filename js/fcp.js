@@ -2462,6 +2462,7 @@ function resetBuild() {
     investedSkills = Array.apply(null, new Array(SKILLS_RAW.length)).map(Number.prototype.valueOf,0);
     perks = Array.apply(null, new Array(PERKS_RAW.length)).map(Number.prototype.valueOf,0);
     takenTraits = Array.apply(null, new Array(TRAITS.length)).map(Number.prototype.valueOf,0);
+    drugs = Array.apply(null, new Array(DRUGS_RAW.length)).map(Number.prototype.valueOf,0);
    
     takenPerksOnLvls = Array.apply(null, new Array(PERKS_ON_LEVELS.length)).map(Number.prototype.valueOf,0);
 	flatBonuses = Array.apply(null, new Array(SKILLS_RAW.length)).map(Number.prototype.valueOf,0);
