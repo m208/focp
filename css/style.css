@@ -1,10 +1,7 @@
 body{background-color: #000000;background-repeat: no-repeat;background-position: center;font-family: Verdana, Geneva, sans-serif;font-size: 12px;color: #ededed;}
 
 }
-@font-face{
-	font-family: "Gothic821";
-	src: url(https://m208.github.io/focp/art/font/fallout.eot);
-}
+
 @font-face{
 	font-family: "Gothic821";
 	src: url(https://m208.github.io/focp/art/font/Gothic_821_Condensed.ttf) format('truetype');
