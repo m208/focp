@@ -926,16 +926,18 @@ function getPerkRequiredLeveldiv3m1(name) {
 
 
 function perkAvailableBySkill(name){
-	//var ret = false;
+	var ret = 3;
 	$.each(PERKS_SKILL_REQ, function(index, value) {
 		if (name == index){
 			for(var index=0;index<PERKS_SKILL_REQ[name].length;index++) {
 				var element=(PERKS_SKILL_REQ[name])[index]
 				//if((element > 0 && curSkills[index] < element) || (element < 0 && curSkills[index] >= -element )) {
 				if (element > 0 && curSkills[index] < element) {
-					return 1;	// to auto fit skills
+					ret = 1;
+					//return 1;	// to auto fit skills
 				} else if (element < 0 && curSkills[index] >= -element){
-					return 0;	// we cant lower skills
+					ret = 0;
+					//return 0;	// we cant lower skills
 				}
 				//console.log(name, element, curSkills[index] );
 				//ret = false;
@@ -943,7 +945,7 @@ function perkAvailableBySkill(name){
 			}	
 		}
 	});
-	return 3; // spagetticode
+	return ret; // spagetticode
 }
 
 // more simple func, checking latest missing perk, dont allow take highers perks if no more free perks 
