@@ -1011,7 +1011,7 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 	
 	// checks skill requirements
 	var perkNotAvailableBySkill = perkAvailableBySkill(name);
-	
+	console.log(name, perkNotAvailableBySkill);
 	if(perkNotAvailableBySkill == 1){
 		return 3;
 	} else if (perkNotAvailableBySkill == 0){
