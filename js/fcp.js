@@ -2985,7 +2985,6 @@ function ShareImg() {
  function makeShort(longURL) 
  {
 	var clientKey = 'AIzaSyBmYu7V4RIDRJ4WdjiHkuzZutv-m6F4LUc';
-	//var clientKey = 'AIzaSyAMTVPm2GtPUIuO2_0qngwL9dfiGj5iumU';
 	$.ajax({
         url: 'https://www.googleapis.com/urlshortener/v1/url?key='+clientKey+'',
 		type: 'POST',
