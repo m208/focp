@@ -1715,7 +1715,7 @@ function updateSequence() {
 
 
 function updateSkills() {
-    basicInt = special[SPECIAL["IN"]] 
+    basicInt = realSpecial("IN"); // special[SPECIAL["IN"]] 
     updateTagPoints();
     updateSG();
     updateBG();
@@ -1753,10 +1753,14 @@ function calcFlatBonus(val, perkName) {
     return flatBonus;
 }
 
+function realSpecial(name){
+	return (special[SPECIAL[name]] - gainedSpecial[SPECIAL[name]]);
+}
+
 function updateSG() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? -10 : 0;
     
-    var res = 5 + 4 * special[SPECIAL["AG"]];
+    var res = 5 + 4 * realSpecial("AG");
 
     var flatBonus = 0 ;
 	if (glowQuestTaken == 1) {
@@ -1770,7 +1774,7 @@ function updateSG() {
 function updateBG() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? -10 : 0;
     
-    var res = 2 * special[SPECIAL["AG"]];
+    var res = 2 * realSpecial("AG");
 
     var flatBonus = 0 ;
 	if (glowQuestTaken == 1) {
@@ -1784,7 +1788,7 @@ function updateBG() {
 function updateEW() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? -10 : 0;
     
-    var res = 2 * special[SPECIAL["AG"]];
+    var res = 2 * realSpecial("AG");
 
     var flatBonus = 0 ;
 	if (glowQuestTaken == 1) {
@@ -1799,7 +1803,7 @@ function updateEW() {
 function updateCC() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? -10 : 0;
     
-    var res = 30 + 2 * (special[SPECIAL["AG"]] + special[SPECIAL["ST"]]);
+    var res = 30 + 2 * (realSpecial("AG") + realSpecial("ST"));
     
     calcSkill(3, res + bonus); 
 };
@@ -1811,7 +1815,7 @@ function updateScavenging() {
 function updateThrowing() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? -10 : 0;
     
-    var res = 4 * special[SPECIAL["AG"]];
+    var res = 4 * realSpecial("AG");
     
     calcSkill(5, res + bonus); 
 };
@@ -1819,7 +1823,7 @@ function updateThrowing() {
 function updateFA() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? 15 : 0;
     
-    var res = 2 * (special[SPECIAL["PE"]] + basicInt);
+    var res = 2 * (realSpecial("PE") + basicInt);
 
     calcSkill(6, res + bonus); 
 	
@@ -1828,7 +1832,7 @@ function updateFA() {
 function updateDoc() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? 15 : 0;
     
-    var res = 5 + (special[SPECIAL["PE"]] + basicInt);
+    var res = 5 + (realSpecial("PE") + basicInt);
 
     calcSkill(7, res + bonus); 
 };
@@ -1836,25 +1840,25 @@ function updateDoc() {
 function updateSneak() {
     var flatbonus = 0;
 
-    var res = 5 + 3 * special[SPECIAL["AG"]];
+    var res = 5 + 3 * realSpecial("AG");
     
     calcSkill(8, res); 
 };
 
 function updateLP() {
-    var res = 10 + (special[SPECIAL["PE"]] + special[SPECIAL["AG"]]);
+    var res = 10 + (realSpecial("PE") + realSpecial("AG"));
 
     calcSkill(9, res); 
 };
 
 function updateSteal() {
-    var res = 3 * special[SPECIAL["AG"]];
+    var res = 3 * realSpecial("AG");
 
     calcSkill(10, res); 
 };
 
 function updateTraps() {
-    var res = 10 + (special[SPECIAL["PE"]] + special[SPECIAL["AG"]]);
+    var res = 10 + (realSpecial("PE") + realSpecial("AG"));
     
     calcSkill(11, res); 
 };
@@ -1879,7 +1883,7 @@ function updateRepair() {
 function updateSpeech() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? 15 : 0;
     
-    var res = 5 * special[SPECIAL["CH"]];
+    var res = 5 * realSpecial("CH");
     
     calcSkill(14, res + bonus);
 };
@@ -1887,13 +1891,13 @@ function updateSpeech() {
 function updateBarter() {
     var bonus = takenTraits[TRAITS.indexOf("GoodNatured")] ? 15 : 0;
 
-    var res = 4 * special[SPECIAL["CH"]];
+    var res = 4 * realSpecial("CH");
     
     calcSkill(15, res + bonus); 
 };
 
 function updateGambling() {
-    var res = 5 * special[SPECIAL["LK"]];
+    var res = 5 * realSpecial("LK");
     
     calcSkill(16, res); 
 };
@@ -1901,7 +1905,7 @@ function updateGambling() {
 function updateODM() {
     var bonus = takenTraits[TRAITS.indexOf("Mutant")] ? 100 : 0;
 
-    var res = 2 * (special[SPECIAL["EN"]] + basicInt);
+    var res = 2 * (realSpecial("EN") + basicInt);
 
 	var flatBonus = 0 ;
 	if (quests[3] == 1) {
