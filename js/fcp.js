@@ -2151,7 +2151,7 @@ function generateQuestText() {
 
 function generateJsonData() {
 		
-	var json = $.getJSON('https://m208.github.io/focp/ajax/languages.txt?v=1523916875',  function(data) {	// get ajax json data
+	var json = $.getJSON('https://m208.github.io/focp/ajax/languages.txt?v=1532976473',  function(data) {	// get ajax json data
 		info 		= data[current_lang]["tooltips"];
 		perkReqInfo = data[current_lang]["warning_tips"];
 		iFaceMsg = data[current_lang]["variables"]["iFaceMsg"];
@@ -2602,7 +2602,7 @@ function translateIface(new_lang){
 
 		// ajax json data
 	
-	var json = $.getJSON('https://m208.github.io/focp/ajax/languages.txt?v=1523916875',  function(data) {
+	var json = $.getJSON('https://m208.github.io/focp/ajax/languages.txt?v=1532976473',  function(data) {
 		
 		// translate existed txt
 		var div_text = data[new_lang]["div_texts"];
