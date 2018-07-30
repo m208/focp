@@ -1000,7 +1000,8 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 					return 0;
 				}
 			} else {					// default
-				if(element > 0 && special[index] < element || element < 0 && gainedSpecial >= -element) {
+				if(element > 0 && special[index] < element || element < 0 && special[index] >= -element) {				
+			//	console.log(name, element);
 					return 0;
 				}
 			}
