@@ -3010,7 +3010,7 @@ function ShareImg() {
  }
  
 
- function makeShort(longURL) 
+ function makeShort2(longURL) 
 {
     $.getJSON(
         "http://api.bitly.com/v3/shorten?callback=?", 
