@@ -3009,29 +3009,24 @@ function ShareImg() {
      });
  }
  
- 
-  function makeShort2(longURL) 
- {
-	var clientKey = 'AIzaSyD9NmSyRNQNQq7haQeXAYsDRn-2Q8vrwOw';
-	$.ajax({
-        url: 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key='+clientKey+'',
-		type: 'POST',
-        contentType: 'application/json',
-        data: '{ longDynamicLink: "' + longURL +'", suffix: {option: SHORT} }',
-        
 
-		dataType: 'json',
-        success: function(response) {
-		if(response.id != null)
-        {
-			window.prompt (iFaceMsg[0], response.id);
-        }
+ function makeShort(longURL) 
+{
+    $.getJSON(
+        "http://api.bitly.com/v3/shorten?callback=?", 
+        { 
+            "format": "json",
+            "apiKey": "R_be33a7164e7b421195a5aeedf6cbdf3e",
+            "login": "o_1mbn2kvd28",
+            "longUrl": longURL
         },
-		error: function(response) {
-            alert(iFaceMsg[6]);
+        function(response)
+        {
+            func(response.data.url);
+			console.log('succes');
         }
-     });
- }
+    );
+}
 
  
 	// ajax animation
