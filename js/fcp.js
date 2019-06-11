@@ -3009,26 +3009,33 @@ function ShareImg() {
      });
  }
  
+ 
   function makeShort2(longURL) 
  {
-	 let key = 'e7c209dba6eb6c8382641a87a7ebf0d47f4c7';
-	 let name = 'name';
-	 
-	 
-    $.getJSON(
-        'https://cutt.ly/api/api.php?key='+key+'&short='+longURL+'&name=['+name+']', 
-        { 
-        /*    "format": "json",
-            "apiKey": api_key,
-            "longUrl": longURL
-			*/
-        },
-        function(response)
+	var clientKey = 'AIzaSyD9NmSyRNQNQq7haQeXAYsDRn-2Q8vrwOw';
+	$.ajax({
+        url: 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key='+clientKey+'',
+		type: 'POST',
+        contentType: 'application/json',
+      //  data: '{ longUrl: "' + longURL +'"}',
+        
+		data: {
+			"longDynamicLink": string,
+			"suffix": {			"option": "SHORT"				}
+		}
+		dataType: 'json',
+        success: function(response) {
+		if(response.id != null)
         {
-            func(response.data.url);
+			window.prompt (iFaceMsg[0], response.id);
         }
-    );
+        },
+		error: function(response) {
+            alert(iFaceMsg[6]);
+        }
+     });
  }
+
  
 	// ajax animation
 
