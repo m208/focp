@@ -3017,7 +3017,7 @@ function ShareImg() {
         url: 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key='+clientKey+'',
 		type: 'POST',
         contentType: 'application/json',
-        data: '{ longDynamicLin: "' + longURL +'", suffix: {option: SHORT} }',
+        data: '{ longDynamicLink: "' + longURL +'", suffix: {option: SHORT} }',
         
 
 		dataType: 'json',
