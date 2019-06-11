@@ -3018,9 +3018,10 @@ function ShareImg() {
     $.getJSON(
         'https://cutt.ly/api/api.php?key='+key+'&short='+longURL+'&name=['+name+']', 
         { 
-            "format": "json",
+        /*    "format": "json",
             "apiKey": api_key,
             "longUrl": longURL
+			*/
         },
         function(response)
         {
