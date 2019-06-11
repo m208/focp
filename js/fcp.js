@@ -3012,7 +3012,7 @@ function ShareImg() {
   function makeShort2(longURL) 
  {
 	$.ajax({
-        url: 'http://tinyurl.com/api-create.php?url='+longURL+'',
+        url: 'https://cutt.ly/api/api.php?key=[e7c209dba6eb6c8382641a87a7ebf0d47f4c7]&short=['+longURL+']&name=[]',
 		type: 'POST',
         contentType: 'application/json; charset=utf-8',
         success: function(response) {
