@@ -3011,20 +3011,22 @@ function ShareImg() {
  
   function makeShort2(longURL) 
  {
-	$.ajax({
-        url: 'https://cutt.ly/api/api.php?key=[e7c209dba6eb6c8382641a87a7ebf0d47f4c7]&short=['+longURL+']&name=[]',
-		type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        success: function(response) {
-		if(response.id != null)
-        {
-			window.prompt (iFaceMsg[0], response.id);
-        }
+	 let key = 'e7c209dba6eb6c8382641a87a7ebf0d47f4c7';
+	 let name = 'name';
+	 
+	 
+    $.getJSON(
+        'https://cutt.ly/api/api.php?key='+key+'&short='+longURL+'&name=['+name+']', 
+        { 
+            "format": "json",
+            "apiKey": api_key,
+            "longUrl": longURL
         },
-		error: function(response) {
-            alert(iFaceMsg[6]);
+        function(response)
+        {
+            func(response.data.url);
         }
-     });
+    );
  }
  
 	// ajax animation
