@@ -2988,7 +2988,7 @@ function ShareImg() {
 }
 
  	// goo.gl API
- function makeShort(longURL) 
+ function makeShortOld(longURL) 
  {
 	var clientKey = 'AIzaSyBmYu7V4RIDRJ4WdjiHkuzZutv-m6F4LUc';
 	$.ajax({
@@ -3008,25 +3008,32 @@ function ShareImg() {
         }
      });
  }
- 
-
- function makeShort2(longURL) 
-{
-    $.getJSON(
-        "http://api.bitly.com/v3/shorten?callback=?", 
-        { 
-            "format": "json",
-            "apiKey": "R_be33a7164e7b421195a5aeedf6cbdf3e",
-            "login": "o_1mbn2kvd28",
-            "longUrl": longURL
+ // e3892dbfcbd3a4a602f3e120b1afb178b836efa0
+  function makeShort(longURL) 
+ {
+	var accessToken = 'e3892dbfcbd3a4a602f3e120b1afb178b836efa0';
+    $.ajax({
+        url: "https://api-ssl.bitly.com/v4/shorten",
+        cache: false,
+        dataType: "json",
+        method: "POST",
+        contentType: "application/json",
+        beforeSend: function (xhr) {
+			xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
         },
-        function(response)
+        data: '{ "long_url" : "' + longURL +'"}',
+        success: function(response) {
+		if(response.id != null)
         {
-            func(response.data.url);
-			console.log('succes');
+			window.prompt (iFaceMsg[0], response.id);
         }
-    );
-}
+        },
+		error: function(response) {
+            alert(iFaceMsg[6]);
+        }
+     });
+ }
+ 
 
  
 	// ajax animation
