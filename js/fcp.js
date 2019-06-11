@@ -3009,6 +3009,24 @@ function ShareImg() {
      });
  }
  
+  function makeShort2(longURL) 
+ {
+	$.ajax({
+        url: 'http://tinyurl.com/api-create.php?url='+longURL+'',
+		type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        success: function(response) {
+		if(response.id != null)
+        {
+			window.prompt (iFaceMsg[0], response.id);
+        }
+        },
+		error: function(response) {
+            alert(iFaceMsg[6]);
+        }
+     });
+ }
+ 
 	// ajax animation
 
 $(document).ajaxStart(function() {
