@@ -2398,23 +2398,58 @@ function restoreBuildES17() {
 	
 	build_name 				= decodedObject.n === 'undefined' ? 'Unnamed' : decodedObject.n;
     level 					= parseInt(decodedObject.lvl);
-    special 				= decodedObject.s.split(',');
+    special 				= decodedObject.s.split(',').map(Number);
 	spoints 				= parseInt(decodedObject.sp);
-    takenTraits 			= decodedObject.tt.split(',');
-	takenPerksOnLvls 		= decodedObject.tp.split(',');
+    takenTraits 			= decodedObject.tt.split(',').map(Number);
+	takenPerksOnLvls 		= decodedObject.tp.split(',').map(Number);
     takenBooks 				= JSON.parse(decodedObject.tb);		// +
-    taggedSkills 			= decodedObject.ts.split(',');
-    perks 					= decodedObject.p.split(',');
-	investedSkills 			= decodedObject.is.split(',');
+    taggedSkills 			= decodedObject.ts.split(',').map(Number);
+    perks 					= decodedObject.p.split(',').map(Number);
+	investedSkills 			= decodedObject.is.split(',').map(Number);
     glowQuestTaken 			= parseInt(decodedObject.gq);
     takenImplant 			= decodedObject.it === 'false' ? false : decodedObject.it;
-	gainedSpecial			= decodedObject.gs.split(',');
+	gainedSpecial			= decodedObject.gs.split(',').map(Number);
     chaQuest 				= (decodedObject.cq === 'true');
 	SKILLS_RELATED_THINGS 	= JSON.parse(decodedObject.rs);		// +
-	quests 					= decodedObject.q.split(',');
-	perksTakingQuee 		= decodedObject.pq.split(',');
-	drugs 					= decodedObject.d.split(',');
+	quests 					= decodedObject.q.split(',').map(Number);
+	perksTakingQuee 		= decodedObject.pq.split(',').map(Number);
+	drugs 					= decodedObject.d.split(',').map(Number);
 	var lang 				= decodedObject.l;
+	
+	
+	console.log(build_name);
+	console.log(level);
+	console.log(special);
+	console.log(spoints);
+	console.log(takenTraits);
+	console.log(takenPerksOnLvls);
+	console.log(takenBooks);
+	console.log(taggedSkills);
+	console.log(perks);
+	console.log(investedSkills);
+	console.log(glowQuestTaken);
+	console.log(takenImplant);
+	console.log(gainedSpecial);
+	console.log(chaQuest);
+	console.log(SKILLS_RELATED_THINGS);
+	console.log(quests);
+	console.log(perksTakingQuee);
+	console.log(drugs);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	translateIface(lang);
 	window.location.hash = ""; 			// clear  url
