@@ -2387,11 +2387,8 @@ function restoreBuild() {
 }
 
 function restoreBuildES17() {
-	console.log('es17.4');
-	//let urlParams = window.location.hash.substring(paramsString.indexOf('#')+1);
-	
+	console.log('es17');
 	let urlParams = location.hash.substring(1);
-	console.log(urlParams);
 	let encodedObject = new URLSearchParams(urlParams);
 
 	let decodedObject = {};
@@ -2420,40 +2417,6 @@ function restoreBuildES17() {
 	var lang 				= decodedObject.l;
 	
 	
-	console.log(build_name);
-	console.log(level);
-	console.log(special);
-	console.log(spoints);
-	console.log(takenTraits);
-	console.log(takenPerksOnLvls);
-	console.log(takenBooks);
-	console.log(taggedSkills);
-	console.log(perks);
-	console.log(investedSkills);
-	console.log(glowQuestTaken);
-	console.log(takenImplant);
-	console.log(gainedSpecial);
-	console.log(chaQuest);
-	console.log(SKILLS_RELATED_THINGS);
-	console.log(quests);
-	console.log(perksTakingQuee);
-	console.log(drugs);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	translateIface(lang);
 	window.location.hash = ""; 			// clear  url
     init();
@@ -2461,8 +2424,6 @@ function restoreBuildES17() {
 }
 
 function restoreBuildJQ() {
-
-    
 
     var encodedObject = deparam(window.location.hash.substring(1))
 
