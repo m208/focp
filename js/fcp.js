@@ -2387,10 +2387,38 @@ function restoreBuild() {
 }
 
 function restoreBuildES17() {
+	let urlParams = window.location.hash.substring(paramsString.indexOf('#')+1);
+	let encodedObject = new URLSearchParams(urlParams);
 
-
-
-
+	let decodedObject = {};
+	for (let p of searchParams) {
+		decodedObject[p[0]] = p[1];
+ 	}
+	
+	build_name 				= decodedObject.n === 'undefined' ? 'Unnamed' : decodedObject.n;
+    level 					= parseInt(decodedObject.lvl);
+    special 				= decodedObject.s.split(',');
+	spoints 				= parseInt(decodedObject.sp);
+    takenTraits 			= decodedObject.tt.split(',');
+	takenPerksOnLvls 		= decodedObject.tp.split(',');
+    takenBooks 				= JSON.parse(decodedObject.tb);		// +
+    taggedSkills 			= decodedObject.ts.split(',');
+    perks 					= decodedObject.p.split(',');
+	investedSkills 			= decodedObject.is.split(',');
+    glowQuestTaken 			= parseInt(decodedObject.gq);
+    takenImplant 			= decodedObject.it === 'false' ? false : decodedObject.it;
+	gainedSpecial			= decodedObject.gs.split(',');
+    chaQuest 				= (decodedObject.cq === 'true');
+	SKILLS_RELATED_THINGS 	= JSON.parse(decodedObject.rs);		// +
+	quests 					= decodedObject.q.split(',');
+	perksTakingQuee 		= decodedObject.pq.split(',');
+	drugs 					= decodedObject.d.split(',');
+	var lang 				= decodedObject.l;
+	
+	translateIface(lang);
+	window.location.hash = ""; 			// clear  url
+    init();
+	
 }
 
 function restoreBuildJQ() {
@@ -2529,7 +2557,7 @@ function serialize() {
 	// ES 2017 method. String length more short
 	const URLparams = new URLSearchParams(Object.entries(build));
 	let url = URLparams.toString();
-	console.log(url);
+	//console.log(url);
     return url;
 }
 
