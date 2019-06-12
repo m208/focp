@@ -2373,9 +2373,29 @@ function dmgTrResTooltip(){
 	
 }
 
-function restoreBuild() {
 
-    if (!window.location.hash) { return }
+
+
+function restoreBuild() {
+	if (!window.location.hash) { return }
+	let code = window.location.hash.slice(-4);
+	if (code == 'es17') {
+		restoreBuildES17();
+	} else {
+		restoreBuildJQ();
+	}
+}
+
+function restoreBuildES17() {
+
+
+
+
+}
+
+function restoreBuildJQ() {
+
+    
 
     var encodedObject = deparam(window.location.hash.substring(1))
 
@@ -2500,10 +2520,16 @@ function serialize() {
 		q: quests,
 		pq: perksTakingQuee,
 		d: drugs,
-		l: current_lang
+		l: current_lang,
+		js:'es17'
 
     }
-    var url = $.param(build)
+  //  var url = $.param(build)	JQuery .params
+  
+	// ES 2017 method. String length more short
+	const URLparams = new URLSearchParams(Object.entries(params));
+	let url = URLparams.toString();
+	console.log(url);
     return url;
 }
 
