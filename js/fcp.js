@@ -2413,7 +2413,7 @@ function restoreBuildES17() {
 	SKILLS_RELATED_THINGS 	= JSON.parse(decodedObject.rs);		// +
 	quests 					= decodedObject.q.split(',').map(Number);
 	
-	if (decodedObject.pq.split(',').map(Number).length>0) perksTakingQuee = decodedObject.pq.split(',').map(Number);
+	if (decodedObject.pq.length>0) perksTakingQuee = decodedObject.pq.split(',').map(Number);
 	
 	drugs 					= decodedObject.d.split(',').map(Number);
 	var lang 				= decodedObject.l;
