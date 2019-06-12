@@ -2527,7 +2527,7 @@ function serialize() {
   //  var url = $.param(build)	JQuery .params
   
 	// ES 2017 method. String length more short
-	const URLparams = new URLSearchParams(Object.entries(params));
+	const URLparams = new URLSearchParams(Object.entries(build));
 	let url = URLparams.toString();
 	console.log(url);
     return url;
