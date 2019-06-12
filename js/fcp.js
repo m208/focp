@@ -2508,7 +2508,7 @@ function serialize() {
         sp: spoints,
         tt: takenTraits,
         tp: takenPerksOnLvls,
-        tb: takenBooks,
+        tb: JSON.stringify(takenBooks),
         ts: taggedSkills,
         p: perks,
         is: investedSkills,
