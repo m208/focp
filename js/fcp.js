@@ -2516,7 +2516,7 @@ function serialize() {
         it: takenImplant,
         gs: gainedSpecial,
 		cq: chaQuest,
-		rs: SKILLS_RELATED_THINGS,
+		rs: JSON.stringify(SKILLS_RELATED_THINGS),
 		q: quests,
 		pq: perksTakingQuee,
 		d: drugs,
