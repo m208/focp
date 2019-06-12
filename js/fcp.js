@@ -2387,6 +2387,7 @@ function restoreBuild() {
 }
 
 function restoreBuildES17() {
+	console.log('es17');
 	let urlParams = window.location.hash.substring(paramsString.indexOf('#')+1);
 	let encodedObject = new URLSearchParams(urlParams);
 
