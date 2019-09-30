@@ -2043,10 +2043,10 @@ function generatePerkText() {
     $('#outputPerks1').html("")
     $('#outputPerks2').html("")
 
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 2; i++) {
         $('#outputPerks1').append(perks_text[i]);
     }
-    for (var i = 3; i < PERKS_ON_LEVELS.length; i++) {
+    for (var i = 2; i < PERKS_ON_LEVELS.length; i++) {
         $('#outputPerks2').append(perks_text[i]);
     }
 }
