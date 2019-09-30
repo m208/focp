@@ -90,7 +90,7 @@ var PERKS_RAW = [
         "Silent Death"]
 */
 
-var PERKS_RAW = [
+var PERKS_NAMES = [
 	"Adrenaline Rush",
 	"Bonus HtH Damage",
 	"Bonus Move",
