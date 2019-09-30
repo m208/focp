@@ -45,8 +45,8 @@ var SKILLS = {};
 for (var i = 0; i < SKILLS_RAW.length; i++) {
     SKILLS[SKILLS_RAW[i]] = i;
 }
-/*
-var PERKS_RAW = [
+
+var PERKS_NAMES = [
         "Anticritical",
         "Bonus HtH Damage",
         "Cautious Nature",
@@ -87,10 +87,10 @@ var PERKS_RAW = [
         "Bonus HtH Attacks",
         "Bonus Rate of Fire",
         "Pickpocket",
-        "Silent Death"]
-*/
+        "Silent Death" ]
 
-var PERKS_NAMES = [
+
+var PERKS_RAW = [
 	"Adrenaline Rush",
 	"Bonus HtH Damage",
 	"Bonus Move",
