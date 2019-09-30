@@ -45,7 +45,7 @@ var SKILLS = {};
 for (var i = 0; i < SKILLS_RAW.length; i++) {
     SKILLS[SKILLS_RAW[i]] = i;
 }
-
+/*
 var PERKS_RAW = [
         "Anticritical",
         "Bonus HtH Damage",
@@ -88,6 +88,73 @@ var PERKS_RAW = [
         "Bonus Rate of Fire",
         "Pickpocket",
         "Silent Death"]
+*/
+
+var PERKS_RAW = [
+	"Adrenaline Rush",
+	"Bonus HtH Damage",
+	"Bonus Move",
+	"Dodger",
+	"Earlier Sequence",
+	"Quick Pockets",
+	"Gain Agility",
+	"Gain Charisma",
+	"Gain Endurance",
+	"Gain Intelligence",
+	"Gain Luck",
+	"Gain Perception",
+	"Gain Strength",
+	"Healer",
+	"Iron Grip",
+	"Livewire",
+	"More Critical",
+	"Quick Recovery",
+	"Weapon Handling",
+
+	"More HtH Criticals",
+	"Even More Criticals",
+	"Ghost",
+	"Healer+",
+	"Heave Ho!",
+	"HtH Evade",
+	"Spray and Pray",
+	"Toughness",
+	"Tree Trunk Thighs",
+
+	"Blessed Are the Weak",
+	"Bonus Ranged Damage",
+	"Dodger+",
+	"Heave Ho!!",
+	"HtH Evade+",
+	"In Your Face!",
+	"Pyromaniac",
+	"Sharpshooter",
+	"Stonewall",
+	"Toughness",
+
+	"Action Boy",
+	"Better Criticals",
+	"Bonus Ranged Damage",
+	"Hit the Gaps",
+	"Lifegiver",
+	"Living Anatomy",
+
+	"Better HtH Criticals",
+	"Lifegiver",
+	"Man of Steel",
+	"Medic",
+	"More Ranged Damage",
+	"Pyromaniac",
+	"Right between the Eyes",
+	"Silent Death",
+	"Silent Running",
+
+	"Bonus HtH Attacks",
+	"Bonus Rate of Fire",
+	"Lifegiver"
+
+	
+]
 
 var PERKS_NAMES = PERKS_RAW;
 		
@@ -339,8 +406,8 @@ var takenBooks = {  'SG': 0,
                     'Repair': 0,
                     'Science': 0,
                     'ODM': 0 }
-
-var PERKS_ON_LEVELS = [10, 8, 4, 15, 3, 1]; 
+var PERKS_ON_LEVELS = [19, 9, 10, 6, 9, 3];  		//19 9 10 6 9 3
+//var PERKS_ON_LEVELS = [10, 8, 4, 15, 3, 1];  		//19 9 10 6 9 3
 var takenPerksOnLvls = Array.apply(null, new Array(PERKS_ON_LEVELS.length)).map(Number.prototype.valueOf,0);
 var QUANTITY_PERKS_1COL = PERKS_ON_LEVELS[0] + PERKS_ON_LEVELS[1] + PERKS_ON_LEVELS[2];
 var namePerkCol1 = "Anticritical"
