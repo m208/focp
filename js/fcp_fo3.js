@@ -1060,6 +1060,7 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 
 
     // checks special
+	try{
     for(var index=0;index<PERKS_SPECIAL_REQ[name].length;index++) {
         var element=(PERKS_SPECIAL_REQ[name])[index]
 			if (not_ranks == 2){		// this used to highlight unavaial perks taken with +stat perks, before them
@@ -1073,6 +1074,10 @@ function perkAvailable(name, not_ranks) {				//	return : 0 = perk unavalaible, 1
 				}
 			}
     }
+	}
+	catch(e){
+		
+	}
 	
 	// checks skill requirements
 	var perkNotAvailableBySkill = perkAvailableBySkill(name);
